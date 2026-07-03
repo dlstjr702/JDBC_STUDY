@@ -12,3 +12,9 @@ JDBC수업
 <img width="1837" height="914" alt="순서5" src="https://github.com/user-attachments/assets/a2d97615-384b-4b47-a16f-3a20090edee8" />
 <img width="703" height="747" alt="순서6" src="https://github.com/user-attachments/assets/58ff76a7-a215-466a-b2b9-b7c4821ae42d" />
 <img width="724" height="776" alt="순서7" src="https://github.com/user-attachments/assets/7cf1c97d-e3f1-4311-9704-d3573748ec01" />
+
+
+이클립스 db연결
+<img width="1911" height="973" alt="순서20" src="https://github.com/user-attachments/assets/c9095f8c-4e9f-4afa-99d8-fbd504e45f37" />
+<img width="953" height="573" alt="순서21" src="https://github.com/user-attachments/assets/362d421c-355e-4c2d-9695-8c8d48519726" />
+<img width="979" height="586" alt="순서22" src="https://github.com/user-attachments/assets/681561f8-a08e-4b34-abd4-a5fe435fdf4e" />
