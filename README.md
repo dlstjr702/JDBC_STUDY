@@ -1,7 +1,7 @@
 # JDBC_STUDY
 JDBC수업
 
-
+-------------------------------------------------------------------------------------------------------------------
 1. jdbc폴더 생성
 2. 이클립스로 jdbc폴더경로 설정
 3. 프로젝트생성
@@ -18,3 +18,8 @@ JDBC수업
 <img width="1911" height="973" alt="순서20" src="https://github.com/user-attachments/assets/c9095f8c-4e9f-4afa-99d8-fbd504e45f37" />
 <img width="953" height="573" alt="순서21" src="https://github.com/user-attachments/assets/362d421c-355e-4c2d-9695-8c8d48519726" />
 <img width="979" height="586" alt="순서22" src="https://github.com/user-attachments/assets/681561f8-a08e-4b34-abd4-a5fe435fdf4e" />
+
+
+-------------------------------------------------------------------------------------------------------------------
+2026-07-06 (월요일)
+- DB연결후 조회후 출력작업
