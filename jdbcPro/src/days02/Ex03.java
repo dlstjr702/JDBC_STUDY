@@ -45,7 +45,7 @@ public class Ex03 {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 
-			int empno;
+//			int empno;
 			String ename;
 			LocalDateTime hiredate;
 			double pay;
@@ -55,18 +55,18 @@ public class Ex03 {
 			if ( rs.next()  ) { 
 				list = new ArrayList<EmpDeptSalgradeVO>();
 				do {
-					empno = rs.getInt("empno");
+//					empno = rs.getInt("empno");
 					ename = rs.getString("ename");
 					hiredate = rs.getDate("hiredate").toLocalDate().atStartOfDay();
-					pay = rs.getDouble("pay");
-					dname = rs.getString("dname");
+//					pay = rs.getDouble("pay");
+//					dname = rs.getString("dname");
 					grade = rs.getInt("grade");
 					vo = EmpDeptSalgradeVO.builder()
-							.empno(empno)
+//							.empno(empno)
 							.ename(ename)
 							.hiredate(hiredate)
-							.pay(pay)
-							.dname(dname)
+//							.pay(pay)
+//							.dname(dname)
 							.grade(grade)
 							.build();
 

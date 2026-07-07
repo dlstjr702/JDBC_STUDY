@@ -20,7 +20,10 @@ public class EmpDeptSalgradeVO {
 	private int empno;
 	private String ename;
 	private LocalDateTime hiredate;
+	private Double sal;
 	private double pay;
 	private String dname;
+	private String job;
 	private int grade;
+	private int deptno;
 }
