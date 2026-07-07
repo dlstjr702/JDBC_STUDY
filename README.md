@@ -23,3 +23,61 @@ JDBC수업
 -------------------------------------------------------------------------------------------------------------------
 2026-07-06 (월요일)
 - DB연결후 조회후 출력작업
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+2026-07-07 (화요일)
+- DB연결후 조회후 출력작업
+-- 회원가입
+-- 아이디 : [ ] [중복체크] empno
+
+CREATE OR REPLACE PROCEDURE up_idcheck
+(
+    pid IN emp.empno%TYPE
+)
+IS
+    vcheck NUMBER(1);
+    ex_duplicate_id EXCEPTION;
+BEGIN
+    SELECT COUNT(*) INTO vcheck
+    FROM emp
+    WHERE empno = pid;
+    
+    
+    IF vcheck > 0 THEN
+        RAISE ex_duplicate_id;
+    END IF;
+EXCEPTION
+ WHEN ex_duplicate_id THEN
+    RAISE_APPLICATION_ERROR(
+            -20001,
+            '이미 사용 중인 ID(사원번호)입니다..'
+        );
+-- WHEN OTHERS THEN
+WHEN OTHERS THEN
+        RAISE_APPLICATION_ERROR(
+            -20002,
+            '예상하지 못한 오류가 발생했습니다. (' || SQLCODE || ') ' || SQLERRM
+        );
+END;
+
+
+DECLARE
+vcheck NUMBER(1);
+BEGIN
+    UP_IDCHECK(9999,vcheck);
+    DBMS_OUTPUT.PUT_LINE(vcheck);
+END;
+
+-- 두번째 예시
+
+-- 로그인 처리/                   emp테이블
+-- 아이디 : [         ]          empno
+-- 비밀번호 : [         ]        ename
+-- [로그인][회원가입]
+
+
