@@ -167,5 +167,20 @@ EXCEPTION
 END;
 
 
+-----------------------------------
+-- 저장프로시저
+
+CREATE OR REPLACE PROCEDURE up_selectdept
+(
+    pdeptcursor OUT SYS_REFCURSOR
+)
+IS    
+BEGIN
+    OPEN pdeptcursor FOR
+        SELECT *
+        FROM dept
+        WHERE deptno > 0;
+--EXCEPTION
+END;
 
 
