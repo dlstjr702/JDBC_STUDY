@@ -74,10 +74,43 @@ BEGIN
 END;
 
 -- 두번째 예시
-
 -- 로그인 처리/                   emp테이블
 -- 아이디 : [         ]          empno
 -- 비밀번호 : [         ]        ename
 -- [로그인][회원가입]
 
+-----------------------------------
+-- 로그인 구현
+--CREATE OR REPLACE PROCEDURE up_login
+--(
+--    pid    IN  emp.empno%TYPE,
+--    ppwd   IN  emp.ename%TYPE,
+--    pcheck OUT NUMBER
+--)
+--IS
+--    vcnt NUMBER;
+--BEGIN
+--    -- 1. 아이디 존재 여부 확인
+--    SELECT COUNT(*)
+--    INTO vcnt
+--    FROM emp
+--    WHERE empno = pid;
+--
+--    IF vcnt = 0 THEN
+--        pcheck := 1;       -- 아이디 없음 , 로그인실패
+--    ELSE
+--        -- 2. 비밀번호 확인
+--        SELECT COUNT(*)
+--        INTO vcnt
+--        FROM emp
+--        WHERE empno = pid
+--          AND ename = ppwd;
+--
+--        IF vcnt = 1 THEN
+--            pcheck := 0;   -- 로그인 성공
+--        ELSE
+--            pcheck := -1;  -- 아이디는 존재하지만 비밀번호 틀림
+--        END IF;
+--    END IF;
+--END;
 
