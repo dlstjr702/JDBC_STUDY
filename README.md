@@ -109,8 +109,63 @@ END;
 --        IF vcnt = 1 THEN
 --            pcheck := 0;   -- 로그인 성공
 --        ELSE
+
+
 --            pcheck := -1;  -- 아이디는 존재하지만 비밀번호 틀림
 --        END IF;
 --    END IF;
 --END;
+
+-----------------------------------
+-- 로그인 구현(예외처리)
+
+CREATE OR REPLACE PROCEDURE up_login
+(
+    pid    IN  emp.empno%TYPE,
+    ppwd   IN  emp.ename%TYPE
+)
+IS
+    vcnt NUMBER;
+    ex_invalid_id EXCEPTION;
+    ex_invalid_pwd EXCEPTION;
+    
+BEGIN
+    -- 1. 아이디 존재 여부 확인
+    SELECT COUNT(*)
+    INTO vcnt
+    FROM emp
+    WHERE empno = pid;
+
+    IF vcnt = 0 THEN
+        RAISE ex_invalid_id;
+    ELSE
+        -- 2. 비밀번호 확인
+        SELECT COUNT(*)
+        INTO vcnt
+        FROM emp
+        WHERE empno = pid
+          AND ename = ppwd;
+
+        IF vcnt = 0 THEN
+            RAISE ex_invalid_pwd;
+        END IF;
+    END IF;
+EXCEPTION
+    WHEN ex_invalid_id THEN
+     RAISE_APPLICATION_ERROR(
+            -20001,
+            '존재하지 않는 아이디입니다.'
+        );
+    WHEN ex_invalid_pwd THEN
+     RAISE_APPLICATION_ERROR(
+            -20002,
+            '비밀번호가 일치 하지 않습니다.'
+        );
+    WHEN OTHERS THEN
+        RAISE;
+    
+END;
+
+
+
 
