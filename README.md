@@ -184,3 +184,33 @@ BEGIN
 END;
 
 
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+2026-07-08 (수요일)
+-- 수업 자료 사이트
+http://taeyo.net/Columns/View.aspx?SEQ=110&PSEQ=10&IDX=1
+
+
+-- 게시판 만들기 수업 (DB)
+-- 시퀀스
+CREATE SEQUENCE SEQ_tblcstVSBoard
+NOCACHE;
+
+--DDL문
+CREATE TABLE tbl_cstVSBoard (
+  seq NUMBER  NOT NULL PRIMARY KEY, -- 글번호 컬럼
+  writer VARCHAR2(20) NOT NULL, -- 작성자 컬럼
+  pwd VARCHAR2(20) NOT NULL, -- 비밀번호 컬럼
+  email VARCHAR2(100), -- 메일주소 컬럼
+  title VARCHAR2(200) NOT NULL, -- 제목 컬럼
+  writedate DATE NOT NULL DEFAULT SYSDATE, -- 글쓴일시
+  readed NUMBER NOT NULL DEFAULT 0, -- 조회수
+  mode NUMBER(1) NOT NULL , -- 글의 형식 0이면 일반텍스트 , 1이면 HTML형식
+  content CLOB -- 글의 내용
+)
+
+
