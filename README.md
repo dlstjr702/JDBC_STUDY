@@ -22,7 +22,7 @@ JDBC수업
 
 -------------------------------------------------------------------------------------------------------------------
 2026-07-06 (월요일)
-- DB연결후 조회후 출력작업
+- DB연결후 조회후 출력작업<br>
 
 
 
@@ -30,10 +30,10 @@ JDBC수업
 
 
 -------------------------------------------------------------------------------------------------------------------
-2026-07-07 (화요일)
-- DB연결후 조회후 출력작업
--- 회원가입
--- 아이디 : [ ] [중복체크] empno
+2026-07-07 (화요일)<br>
+- DB연결후 조회후 출력작업<br>
+-- 회원가입<br>
+-- 아이디 : [ ] [중복체크] empno<br>
 
 CREATE OR REPLACE PROCEDURE up_idcheck
 (
@@ -46,8 +46,6 @@ BEGIN
     SELECT COUNT(*) INTO vcheck
     FROM emp
     WHERE empno = pid;
-    
-    
     IF vcheck > 0 THEN
         RAISE ex_duplicate_id;
     END IF;
@@ -72,12 +70,12 @@ BEGIN
     UP_IDCHECK(9999,vcheck);
     DBMS_OUTPUT.PUT_LINE(vcheck);
 END;
-
--- 두번째 예시
--- 로그인 처리/                   emp테이블
--- 아이디 : [         ]          empno
--- 비밀번호 : [         ]        ename
--- [로그인][회원가입]
+<br>
+-- 두번째 예시<br>
+-- 로그인 처리/                   emp테이블<br>
+-- 아이디 : [         ]          empno<br>
+-- 비밀번호 : [         ]        ename<br>
+-- [로그인][회원가입]<br>
 
 -----------------------------------
 -- 로그인 구현
@@ -109,15 +107,13 @@ END;
 --        IF vcnt = 1 THEN
 --            pcheck := 0;   -- 로그인 성공
 --        ELSE
-
-
 --            pcheck := -1;  -- 아이디는 존재하지만 비밀번호 틀림
 --        END IF;
 --    END IF;
 --END;
 
 -----------------------------------
--- 로그인 구현(예외처리)
+-- 로그인 구현(예외처리)<br>
 
 CREATE OR REPLACE PROCEDURE up_login
 (
@@ -168,7 +164,7 @@ END;
 
 
 -----------------------------------
--- 저장프로시저
+-- 저장프로시저<br>
 
 CREATE OR REPLACE PROCEDURE up_selectdept
 (
@@ -190,11 +186,11 @@ END;
 
 
 -------------------------------------------------------------------------------------------------------------------
-2026-07-08 (수요일)
--- 수업 자료 사이트
-http://taeyo.net/Columns/View.aspx?SEQ=110&PSEQ=10&IDX=1
-
-
+2026-07-08 (수요일)<br>
+-- 수업 자료 사이트<br>
+http://taeyo.net/Columns/View.aspx?SEQ=110&PSEQ=10&IDX=1<br>
+<br>
+<br>
 -- 게시판 만들기 수업 (DB)
 -- 시퀀스
 CREATE SEQUENCE SEQ_tblcstVSBoard
@@ -213,8 +209,7 @@ CREATE TABLE tbl_cstVSBoard (
   content CLOB -- 글의 내용
 )
 
-
---DDL문(선생님 코드)
+--DDL문(선생님 코드)<br>
 CREATE TABLE tbl_cstVSBoard (
   seq NUMBER  NOT NULL PRIMARY KEY,
   writer VARCHAR2(20) NOT NULL ,
@@ -229,13 +224,13 @@ CREATE TABLE tbl_cstVSBoard (
 
 
 
--- 페이징 처리 X  + 목록보기
+-- 페이징 처리 X  + 목록보기<br>
 SELECT seq, title, writer,email,writedate,readed
 FROM tbl_cstvsboard
 ORDER BY seq DESC;
 
 
--- 게시글 150개정도 더미 INSERT
+-- 게시글 150개정도 더미 INSERT<br>
 BEGIN
   FOR i IN 1..150 LOOP
       INSERT INTO tbl_cstvsboard ( seq, writer, pwd, email, title, tag, content )
