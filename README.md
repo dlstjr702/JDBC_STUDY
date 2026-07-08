@@ -200,7 +200,7 @@ http://taeyo.net/Columns/View.aspx?SEQ=110&PSEQ=10&IDX=1
 CREATE SEQUENCE SEQ_tblcstVSBoard
 NOCACHE;
 
---DDL문
+--DDL문(내 코드) /선생님코드랑 비교해보기
 CREATE TABLE tbl_cstVSBoard (
   seq NUMBER  NOT NULL PRIMARY KEY, -- 글번호 컬럼
   writer VARCHAR2(20) NOT NULL, -- 작성자 컬럼
@@ -209,8 +209,22 @@ CREATE TABLE tbl_cstVSBoard (
   title VARCHAR2(200) NOT NULL, -- 제목 컬럼
   writedate DATE NOT NULL DEFAULT SYSDATE, -- 글쓴일시
   readed NUMBER NOT NULL DEFAULT 0, -- 조회수
-  mode NUMBER(1) NOT NULL , -- 글의 형식 0이면 일반텍스트 , 1이면 HTML형식
+  tag NUMBER(1) NOT NULL , -- 글의 형식 0이면 일반텍스트 , 1이면 HTML형식
   content CLOB -- 글의 내용
 )
+
+
+--DDL문(선생님 코드)
+CREATE TABLE tbl_cstVSBoard (
+  seq NUMBER  NOT NULL PRIMARY KEY,
+  writer VARCHAR2(20) NOT NULL ,
+  pwd VARCHAR2(20)  NOT NULL ,
+  email VARCHAR2(100)  ,
+  title VARCHAR2(200)  NOT NULL ,
+  writedate DATE  DEFAULT  SYSDATE ,
+  readed NUMBER DEFAULT  0 ,
+  tag NUMBER(1) NOT NULL ,
+  content CLOB
+);
 
 
