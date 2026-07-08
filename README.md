@@ -228,3 +228,36 @@ CREATE TABLE tbl_cstVSBoard (
 );
 
 
+
+-- 페이징 처리 X  + 목록보기
+SELECT seq, title, writer,email,writedate,readed
+FROM tbl_cstvsboard
+ORDER BY seq DESC;
+
+
+-- 게시글 150개정도 더미 INSERT
+BEGIN
+  FOR i IN 1..150 LOOP
+      INSERT INTO tbl_cstvsboard ( seq, writer, pwd, email, title, tag, content )
+      VALUES ( seq_tblcstvsboard.NEXTVAL, '홍길동' || MOD(i, 10), '1234'
+      , '홍길동' || MOD(i, 10) || '@naver.com'
+      , '더미...' || MOD(i, 10), 0, '더미...' || MOD(i, 10) );
+  END LOOP;
+  COMMIT;
+END;
+--
+
+BEGIN
+    UPDATE tbl_cstvsboard
+    SET writer = '조지훈'
+    WHERE MOD(seq,16) IN(3,5,8);
+END;
+
+
+--
+BEGIN
+    UPDATE tbl_cstvsboard
+    SET title = '게시글 구현'
+    WHERE MOD(seq,16) IN(1,7,10);
+END;
+
